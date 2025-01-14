@@ -1,11 +1,12 @@
 import React from 'react'
 
+
 const login = () => {
-  return <div>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  </div>
-}
+  return (
+    <main className='w-full min-h-screen bg-[#f3f4f6] '>
+        <Routes></Routes>
+    </main>
+  );
+};
 
 export default login
