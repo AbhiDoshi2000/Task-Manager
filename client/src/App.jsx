@@ -1,7 +1,7 @@
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/login";
 import { Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom'
-import Toaster from "sonner";
+import { Toaster } from "sonner";
 import TaskDetails from "./pages/TaskDetails";
 import Trash from "./pages/Trash";
 import Users from "./pages/Users";
@@ -29,7 +29,7 @@ function Layout() {
       </div>
     </div>
   ) : (
-    <Navigate to="/log-in" state={{from: location}} repalce/>
+    <Navigate to="/log-in" state={{from: location}} replace/>
   )
 }
 
@@ -39,17 +39,17 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path='/' element={<Navigate to='/dashboard' />} />
-          <Route path='/dashboard >' element={<Dashboard />} />
-          <Route path='/tasks >' element={<Tasks />} />
-          <Route path='/completed/:status >' element={<Tasks />} />
-          <Route path='/in-progress/:status >' element={<Tasks />} />
-          <Route path='/todo/:status >' element={<Tasks />} />
-          <Route path='/team >' element={<Users />} />  
-          <Route path='/trashed >' element={<Trash />} />  
-          <Route path='/task/:id >' element={<TaskDetails />} />  
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/tasks' element={<Tasks />} />
+          <Route path='/completed/:status' element={<Tasks />} />
+          <Route path='/in-progress/:status' element={<Tasks />} />
+          <Route path='/todo/:status' element={<Tasks />} />
+          <Route path='/team' element={<Users />} />  
+          <Route path='/trashed' element={<Trash />} />  
+          <Route path='/task/:id' element={<TaskDetails />} />  
         </Route>
 
-        <Route path='/log-in >' element={<Login />} />  
+        <Route path='/log-in' element={<Login />} />  
       </Routes>
 
       <Toaster richColors/> 
