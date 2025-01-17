@@ -67,7 +67,7 @@ const Login = () => {
                             label="Email Address"
                             className="w-full rounded-full"
                             register={register("email", {
-                                required: "Email Address is required!",
+                            required: "Email Address is required!",
                             })}
                             error={errors.email ? errors.email.message : ""}
                             />
@@ -77,8 +77,8 @@ const Login = () => {
                             name="password"
                             label="Password"
                             className="w-full rounded-full"
-                            register={register("email", {
-                                required: "Password is required!",
+                            register={register("password", {
+                            required: "Password is required!",
                             })}
                             error={errors.password ? errors.password.message : ""}
                             />
