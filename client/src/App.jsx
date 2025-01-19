@@ -6,9 +6,12 @@ import TaskDetails from "./pages/TaskDetails";
 import Trash from "./pages/Trash";
 import Users from "./pages/Users";
 import Tasks from "./pages/Tasks";
+import { useSelector } from 'react-redux';
+
 
 function Layout() {
-  const user = ""
+  const {user} = useSelector((state) => state.auth);
+  console.log("User in Layout:", user);
 
   const location = useLocation()
 
@@ -38,7 +41,7 @@ function App() {
     <main className='w-full min-h-screen bg-[#f3f4f6] '>
       <Routes>
         <Route element={<Layout />}>
-          <Route path='/' element={<Navigate to='/dashboard' />} />
+          <Route index path='/' element={<Navigate to='/dashboard' />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/tasks' element={<Tasks />} />
           <Route path='/completed/:status' element={<Tasks />} />
