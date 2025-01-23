@@ -10,10 +10,57 @@ import { FaNewspaper, FaUsers } from "react-icons/fa";
 import { FaArrowsToDot } from "react-icons/fa6";
 import moment from 'moment';
 import { summary } from '../assets/data';
+import clsx from 'clsx';
+import Chart from '../components/Chart';
 
+const TaskTable = ({tasks}) => {
+  const ICONS = {
+    high: <MdKeyboardDoubleArrowUp />,
+    medium: <MdKeyboardArrowUp />,
+    low: <MdKeyboardArrowDown />,
+  };
+
+  const TableHeader = ()=> (
+    <thead className='border-b border-gray-300'>
+      <tr className='text-black text-left'>
+        <th className='py-2'>Task Title</th>
+        <th className='py-2'>Priority</th>
+        <th className='py-2'>Team</th>
+        <th className='py-2 hidden md:block'>Created At</th>
+      </tr>
+    </thead>
+  );
+
+  const TableRow = ({ task })=> <tr className='border-b border-gray-300 text-gray-600 hover:bg-gray-300/10'>
+    <td className='py-2'>
+      <div className='flex items-center gap-2'>
+        <div
+          className={clsx("w-4 h-4 roudned-full", TASK_TYPE[task.stage])}
+        />
+
+        
+      </div>
+    </td>
+  
+  </tr>;
+  return (
+    <>
+      <div className='w-full md:w-2/3 bg-white px-2 md:px-4 pt-4 pb-4 shadow-md rounded'>
+        <table className='w-full'>
+          <TableHeader />
+          <tbody>
+            {tasks?.map((task, id)=> (
+              <TableRow key={id} task={task} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
 
 const Dashboard = () => {
-const totals = summary.tasks  
+  const totals = summary.tasks  
 
   const stats = [
     {
@@ -51,6 +98,17 @@ const totals = summary.tasks
       <div className='w-full h-32 bg-white p-5 shadow-md rounded-md flex items-center justify-between'>
         <div className='h-full flex flex-col justify-between'>
           <p className='text-base text-gray-600'>{label}</p>
+          <span className='text-2xl font-semibold'>{count}</span>
+          <span className='text-sm text-gray-400'>{"90 last month"}</span>
+        </div>
+
+        <div 
+          className={clsx(
+            "w-10 h-10 rounded-full flex items-center justify-center text-white",
+            bg
+          )}
+        >
+          {icon}
         </div>
       </div>
     )
@@ -62,6 +120,22 @@ const totals = summary.tasks
           stats.map(({icon, bg, label, total}, index)=> (
             <Card key={index} icon={icon} bg={bg} label={label} count={total} />
           ))}       
+      </div>
+
+      <div className='w-full bg-white my-16 p-4 rounded shadow-sm'>
+          <h4 className='text-xl text-gray-600 font-semibold'>
+            Chart by Priority
+          </h4>
+          <Chart />
+      </div>
+
+      <div className='w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8'>
+          {/* left */}
+        <div className=''>
+          <TaskTable 
+            tasks={summary.last10Task}/>
+        </div>  
+          {/* right */}
       </div>
     </div>
   );
