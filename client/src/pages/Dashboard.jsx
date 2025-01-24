@@ -60,7 +60,7 @@ const TaskTable = ({tasks}) => {
           {task.team.map((m, index) => (
             <div
               key={index}
-              className={clsx("w-7 h-7 rounded-full text-white flex items-center justify-center text-sm mr-1", 
+              className={clsx("w-7 h-7 rounded-full text-white flex items-center justify-center text-sm -mr-1", 
                 BGS[index % BGS.length]      
               )}
             >
@@ -160,10 +160,8 @@ const Dashboard = () => {
 
       <div className='w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8'>
           {/* left */}
-        <div className=''>
           <TaskTable 
             tasks={summary.last10Task}/>
-        </div>  
           {/* right */}
       </div>
     </div>
