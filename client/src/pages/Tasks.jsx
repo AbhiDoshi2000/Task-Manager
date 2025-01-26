@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { MdGridView } from "react-icons/md";
+import { FaList } from "react-icons/fa"; 
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+
 
 const TABS = [
   { title: "Board View", icon: <MdGridView />},
@@ -12,6 +17,11 @@ const TASK_TYPE = {
 };
 
 const Tasks = () => {
+  const params = useParams();
+
+  const [selected, setSelected] = useState(0);
+  const [open, setOpen] = useState(false);
+
   return <div>Tasks</div>
 }
 
