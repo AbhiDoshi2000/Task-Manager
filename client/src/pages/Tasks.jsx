@@ -3,6 +3,7 @@ import { MdGridView } from "react-icons/md";
 import { FaList } from "react-icons/fa"; 
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import Loading from '../components/Loader';
 
 
 const TABS = [
@@ -21,8 +22,20 @@ const Tasks = () => {
 
   const [selected, setSelected] = useState(0);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  return <div>Tasks</div>
-}
+  const status = params?.status || ""
+  return loading ? (
+    <div className='py-10'>
+      <Loading />
+    </div>
+  ) : (
+    <div className='w-full'>
+      <div className='flex items-center justify-between mb-4'>
+        <Title title={status ? `${status} Tasks`: "Tasks"} />
+      </div>
+    </div>
+  );
+};
 
 export default Tasks
