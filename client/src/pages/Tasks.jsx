@@ -40,6 +40,7 @@ const Tasks = () => {
       <div className='flex items-center justify-between mb-4'>
       <Title title={status ? `${status} Tasks` : "Tasks"} />
 
+      {/* Check on this button, as it doesn't appear on the screen */}
       {!status && (
         <Button
           onClick={() => setOpen(true)}
