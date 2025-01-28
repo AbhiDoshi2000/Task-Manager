@@ -60,6 +60,8 @@ const Tasks = () => {
               <TaskTitle label="Completed" className={TASK_TYPE.completed}/>
             </div>
           )}
+
+          {selected === 0 ? <div></div> : <div></div>}
         </Tabs>
       </div>
     </div>
