@@ -9,6 +9,8 @@ import { IoMdAdd } from 'react-icons/io';
 import { Button } from '@headlessui/react';
 import Tabs from '../components/Tabs';
 import TaskTitle from '../components/TaskTitle';
+import BoardView from '../components/BoardView';
+import { tasks } from '../assets/data';
 
 
 const TABS = [
@@ -61,7 +63,7 @@ const Tasks = () => {
             </div>
           )}
 
-          {selected === 0 ? <div></div> : <div></div>}
+          {selected === 0 ? <BoardView tasks={tasks} /> : <div ></div>}
         </Tabs>
       </div>
     </div>
