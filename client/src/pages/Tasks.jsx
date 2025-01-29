@@ -6,11 +6,11 @@ import { useState } from 'react';
 import Loading from '../components/Loader';
 import Title from '../components/Title';
 import { IoMdAdd } from 'react-icons/io';
-import { Button } from '@headlessui/react';
 import Tabs from '../components/Tabs';
 import TaskTitle from '../components/TaskTitle';
 import BoardView from '../components/BoardView';
 import { tasks } from '../assets/data';
+import Button from '../components/Button';
 
 
 const TABS = [
