@@ -63,7 +63,11 @@ const Tasks = () => {
             </div>
           )}
 
-          {selected === 0 ? <BoardView tasks={tasks} /> : <div ></div>}
+          {selected === 0 ? <BoardView tasks={tasks} /
+          > : <div >
+            <Table 
+              task={tasks}
+            /></div>}
         </Tabs>
       </div>
     </div>
