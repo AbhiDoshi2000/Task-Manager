@@ -4,7 +4,7 @@ import React from 'react';
 import { FaBug, FaTasks, FaThumbsUp, FaUser } from 'react-icons/fa';
 import {GrInProgress} from 'react-icons/gr';
 import {
-  MdKeyboardArrowDown,
+  MdKeyboardArrowDown,    
   MdKeyboardArrowUp,
   MdKeyboardDoubleArrowUp,
   MdOutlineDoneAll,
