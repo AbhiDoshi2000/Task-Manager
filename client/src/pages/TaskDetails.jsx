@@ -18,6 +18,8 @@ import { toast } from 'sonner';
 import { tasks } from '../assets/data';
 import Tabs from '../components/Tabs';
 import { getInitials, PRIOTITYSTYELS, TASK_TYPE } from '../utils';
+import Loading from '../components/Loader';
+import { Button } from '@headlessui/react';
 
 
 const assets = [
@@ -231,6 +233,9 @@ const TaskDetails = () => {
 const Activities = ({ activity, id }) => {
   const [selected, setSelected] = useState(act_types[0]);
   const [text, setText] = useState("");
+  const isLoading = false
+  
+  const handleSubmit = async ()=> {};
 
   const Card = ({ item }) => {
     return (
@@ -271,7 +276,41 @@ const Activities = ({ activity, id }) => {
           ))}
         </div>
       </div>
+
       <div className='w-full md:w-1/3'>
+          <h4 className='text-gray-600 font-semibold text-lg mb-5'>
+            Add Activity
+          </h4>
+          <div className='w-full flex flex-wrap gap-5'>
+            {act_types.map((item, index) => (
+              <div key = {item} className='flex gap-2 items-center'>
+                <input 
+                  type='checkbox'
+                  className='w-4 h-4'
+                  checked={selected === item ? true : false}
+                  onChange={(e) => setSelected(item)}
+                />
+                <p>{item}</p>
+              </div>
+            ))}
+            <textarea
+              rows={10}
+              value={text}        
+              onChange={(e) => setText(e.target.value)}
+              placeholder='Type......'
+              className='bg-white w-full mt-10 border border-gray-300 outline-none p-4 rounded-md focus:ring-2 ring-blue-500'
+            ></textarea>
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <Button 
+                type='button'
+                label='Submit'
+                onClick={handleSubmit}
+                className='bg-blue-600 text-white rounded'
+              />
+            )}
+          </div>
       </div>
     </div>
   );  
