@@ -8,6 +8,7 @@ import { BsThreeDots } from 'react-icons/bs';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import AddTask from './AddTask';
 import AddSubTask from './AddSubTask';
+import ConfirmatioDialog from '../Dialogs';
 
 const TaskDialog = ({ task }) => {
   const [open, setOpen] = useState(false);
@@ -18,6 +19,7 @@ const TaskDialog = ({ task }) => {
 
   const duplicateHandler = () => {};
   const deleteClicks = () => {};
+  const deleteHandler = () => {};
 
   const items = [
     {
@@ -109,6 +111,12 @@ const TaskDialog = ({ task }) => {
         key={new Date().getTime()}
       />
       <AddSubTask open ={open} setOpen={setOpen} />
+
+      <ConfirmatioDialog 
+        open={openDialog}
+        setOpen={setOpenDialog}
+        onClick={deleteHandler}      
+      />
     </>  
   );
 };
